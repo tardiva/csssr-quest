@@ -1,66 +1,59 @@
-class Slider {
+(function () {
 
-	constructor() {
-		this.bar = document.getElementById('bar');
-		this.handle = document.getElementById('handle');
-		this.startPoint = this.bar.getBoundingClientRect().left + pageXOffset;
-		this.endPoint = this.startPoint + this.bar.offsetWidth;
-		this.leftEdge = -5/* (handle.offsetWidth / 2)*/;
-		this.rightEdge = this.endPoint - this.startPoint - 10/* (handle.offsetWidth / 2)*/;
-	}
+	const bar = document.getElementById('bar');
+	const handle = document.getElementById('handle');
 
-	shift(event) {
-		return event.pageX - this.handle.getBoundingClientRect().left;
-	}
-
-	moveHandle(event, shift) {
+	function moveHandle(event, shift) {
 
 		let eventCoord;
 		let xCoord;
 
-		if (event.type === 'mousemove') {eventCoord = event.pageX;}
-			else if (event.type === 'touchmove') {eventCoord = event.touches[0].pageX;}
+		if (event.type === 'touchmove') {eventCoord = event.touches[0].pageX;}
+		else  {eventCoord = event.pageX;}
 
-		xCoord = eventCoord - shift - this.startPoint;
+		const startPoint = bar.getBoundingClientRect().left + pageXOffset;
+		const endPoint = startPoint + bar.offsetWidth;
+		const leftEdge = -5 /*handle.offsetWidth/2*/;
+		const rightEdge = endPoint - startPoint - 10 /*handle.offsetWidth/2*/;
 
-		if (eventCoord < this.startPoint) {xCoord = this.leftEdge;}
-		if (eventCoord > this.endPoint) {xCoord = this.rightEdge;}
+		xCoord = eventCoord - shift - startPoint;
 
-		this.handle.style.left = xCoord + 'px';
+		console.log(pageXOffset + '-offset ' + startPoint + '-startPoint ' + eventCoord + '-eventCoord ' + xCoord + '-xCoord ' + endPoint + '-endPoint ' + shift + '-shift');
+
+		if (eventCoord < startPoint) {xCoord = leftEdge;}
+		if (eventCoord > endPoint) {xCoord = rightEdge;}
+
+		handle.style.left = xCoord + 'px';
 	}
 
-}
+	handle.addEventListener('mousedown', function (eventD) {
 
-const slider = new Slider();
+		let shift = event.pageX - handle.getBoundingClientRect().left - pageXOffset;
 
-slider.handle.addEventListener('mousedown', function (eventD) {
+		handle.ondragstart = function () {
+			return false;
+		};
 
-	const shift = slider.shift(eventD);
+		document.onmousemove = function (eventM) {
+			moveHandle(eventM, shift);
+		};
 
-	this.ondragstart = function () {
-		return false;
-	};
-
-	document.onmousemove = function (eventM) {
-		slider.moveHandle(eventM, shift);
-	};
-
-	document.onmouseup = function () {
-		document.onmousemove = null;
-	};
-});
-
-slider.handle.addEventListener('touchstart', function () {
-
-	this.addEventListener('touchmove', function (eventM) {
-
-		eventM.preventDefault();
-		slider.moveHandle(eventM, 0);
-
+		document.onmouseup = function () {
+			document.onmousemove = null;
+		};
 	});
 
-});
+	handle.addEventListener('touchstart', function () {
 
+		this.addEventListener('touchmove', function (eventM) {
+
+			eventM.preventDefault();
+			moveHandle(eventM, 0);
+
+		})
+	});
+
+})();
 
 
 
