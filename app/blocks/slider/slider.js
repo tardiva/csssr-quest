@@ -2,23 +2,27 @@
 
 	const bar = document.getElementById('bar');
 	const handle = document.getElementById('handle');
+	const leftEdge = -5 /*handle.offsetWidth/2*/;
+	const rightEdge = bar.offsetWidth - 10 /*handle.offsetWidth/2*/;
 
 	function moveHandle(event, shift) {
 
 		let eventCoord;
 		let xCoord;
+		let offset = 0;
+		let startPoint;
+		let endPoint;
 
 		if (event.type === 'touchmove') {eventCoord = event.touches[0].pageX;}
-		else  {eventCoord = event.pageX;}
+		else  {
+			    eventCoord = event.pageX;
+				offset = pageXOffset;
+		}
 
-		const startPoint = bar.getBoundingClientRect().left + pageXOffset;
-		const endPoint = startPoint + bar.offsetWidth;
-		const leftEdge = -5 /*handle.offsetWidth/2*/;
-		const rightEdge = endPoint - startPoint - 10 /*handle.offsetWidth/2*/;
+		startPoint = bar.getBoundingClientRect().left + offset;
+		endPoint = startPoint + bar.offsetWidth;
 
 		xCoord = eventCoord - shift - startPoint;
-
-		console.log(pageXOffset + '-offset ' + startPoint + '-startPoint ' + eventCoord + '-eventCoord ' + xCoord + '-xCoord ' + endPoint + '-endPoint ' + shift + '-shift');
 
 		if (eventCoord < startPoint) {xCoord = leftEdge;}
 		if (eventCoord > endPoint) {xCoord = rightEdge;}
@@ -26,7 +30,7 @@
 		handle.style.left = xCoord + 'px';
 	}
 
-	handle.addEventListener('mousedown', function (eventD) {
+	handle.addEventListener('mousedown', function () {
 
 		let shift = event.pageX - handle.getBoundingClientRect().left - pageXOffset;
 
@@ -34,8 +38,8 @@
 			return false;
 		};
 
-		document.onmousemove = function (eventM) {
-			moveHandle(eventM, shift);
+		document.onmousemove = function () {
+			moveHandle(event, shift);
 		};
 
 		document.onmouseup = function () {
@@ -43,14 +47,11 @@
 		};
 	});
 
-	handle.addEventListener('touchstart', function () {
+	handle.addEventListener('touchmove', function () {
 
-		this.addEventListener('touchmove', function (eventM) {
+			event.preventDefault();
+			moveHandle(event, 0);
 
-			eventM.preventDefault();
-			moveHandle(eventM, 0);
-
-		})
 	});
 
 })();
