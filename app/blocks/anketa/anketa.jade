@@ -1,0 +1,15 @@
+include ../header/header
+include ../title/title
+include ../form/form
+include ../scripts/scripts
+
+mixin anketa()
+	+b('div').anketa
+		+e('div').main-container
+			+header
+			+e('div').form-wrapper
+				+title
+				+form
+
+
+

@@ -1,0 +1,5 @@
+  [
+	{"label": "Да", "attributes": {"id":"yes", "name": "course", "checked": false}},
+	{"label": "Нет", "attributes": {"id":"no", "name": "course","checked": true}}
+  ]
+

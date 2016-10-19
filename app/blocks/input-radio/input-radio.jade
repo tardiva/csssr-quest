@@ -1,0 +1,6 @@
+mixin input-radio(inputData)
+	+b('div').input-radio
+		+e('input').input(type = "radio")&attributes(inputData.attributes)
+		+e('label').label&attributes({'for':inputData.attributes.id})
+			+e('span').image
+			+e('span').text= inputData.label

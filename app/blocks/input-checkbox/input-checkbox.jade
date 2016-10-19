@@ -1,0 +1,6 @@
+mixin input-checkbox(data)
+	+b('div').input-checkbox
+		+e('input').input(type='checkbox')&attributes(data.attributes)
+		+e('label').label&attributes({'for': data.attributes.id})
+			+e('span').image
+			+e('span').text= data.label

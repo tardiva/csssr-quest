@@ -1,0 +1,32 @@
+[	  {
+		"label": "Полное ФИО",
+		"attributes": {
+		  "value": "Иванов Иван Иванович"
+		}
+	  },
+	  {
+		"label": "Год рождения",
+		"attributes": {
+		  "value": "1990"
+		}
+	  },
+	  {
+		"label": "Место жительства",
+		"attributes": {
+		  "value": "г. Иваново, Россия"
+		}
+	  },
+	  {
+		"label": "Скайп",
+		"attributes": {
+		  "value": "ivanov"
+		}
+	  },
+	  {
+		"label": "Почта",
+		"attributes": {
+		  "value": "ivanov@gmail.com"
+		}
+
+
+  }]

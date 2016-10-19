@@ -1,0 +1,8 @@
+mixin header()
+
+	+b('header').header
+		+e('div').logo
+			img&attributes({'src':'assets/images/logo.png'})
+			+e('div').logo-txt Секретный архив учреждения
+		+e('img').stamp&attributes({'src': 'assets/images/stamp.png'})
+

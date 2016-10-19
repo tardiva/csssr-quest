@@ -1,0 +1,11 @@
+include ../input-text/input-text
+include ../heading/heading
+
+mixin inputs-text-block(inputData)
+	+b.inputs-text-block
+		each input in inputData
+			+e('div').input-wrapper
+				+e('div').label
+					+heading= input.label
+				+e('div').input
+					+input-text(input.attributes)

@@ -1,0 +1,28 @@
+.input-checkbox
+   display block
+   height 35px
+   font bold 21px 'PTSans'
+
+   &__label
+      display flex
+      display -webkit-flex
+      flex-wrap nowrap
+      -webkit-flex-wrap nowrap
+      cursor pointer
+
+   &__input
+      display none
+
+   &__image
+       sprite($checkbox)
+
+   &__input:checked + label span.input-checkbox__image
+       sprite($checkbox_selected)
+
+   &__text
+      margin-left 3px
+      padding-top 4px
+      line-height 25px
+
+
+

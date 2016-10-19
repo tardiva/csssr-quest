@@ -1,0 +1,40 @@
+include ../heading/heading
+include ../inputs-text-block/inputs-text-block
+include ../inputs-checkbox-block/inputs-checkbox-block
+include ../input-text/input-text
+include ../input-radio/input-radio
+include ../slider/slider
+
+mixin form()
+
+	+b('form').form
+
+		+e('article').personal-section
+			+inputs-text-block(getData('personal-info'))
+
+		+e('article').courses-section
+			+e('label').courses-label
+				+heading Выпускник
+					+e('a').link&attributes({"href":"https://htmlacademy.ru/"}) htmlacademy.ru
+			each val in getData('courses')
+				+e('div').courses-input
+					+input-radio(val)
+
+		+e('article').skills-section
+			+e('div').skills-heading
+				+heading Практические навыки
+			+e('div').skills-description Отметьте только те технологии и типы задач, с которыми вы хорошо знакомы. Отсутствие опыта отнюдь не означает, что у вас меньше шансов стать нашим сотрудником. Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
+			each column in getData('skills')
+				+e('div')&attributes({'class': column.class})
+					+inputs-checkbox-block(column)
+
+		+e('article').javascript-section
+			+e('div').javascript-heading
+				+heading Уровень владения JavaScript
+			+slider
+
+		+e('article').date-section
+			+e('div').date-label
+				+heading Дата заполнения
+			+e('div').date-input
+				+input-text({"value": "19.10.2016"})

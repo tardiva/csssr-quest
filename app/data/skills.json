@@ -1,0 +1,145 @@
+[
+   {
+	"class": "first-column",
+	"data": [
+	  {
+		"label": "Методология БЭМ",
+		"attributes": {
+		  "id": "bem-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "jQuery",
+		"attributes": {
+		  "id": "jQuery-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Использую GRUNT",
+		"attributes": {
+		  "id": "grunt-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "HAML",
+		"attributes": {
+		  "id": "haml-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "SASS",
+		"attributes": {
+		  "id": "sass-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "LESS",
+		"attributes": {
+		  "id": "less-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "CoffeeScript",
+		"attributes": {
+		  "id": "coffeeScript-skill",
+		  "checked": false
+		}
+	  }
+	]
+  },
+  {
+	"class": "second-column",
+	"data": [
+	  {
+		"label": "Jade",
+		"attributes": {
+		  "id": "jade-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Stylus",
+		"attributes": {
+		  "id": "stylus-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Знаю (изучаю) Angular",
+		"attributes": {
+		  "id": "angular-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Верстка под Android",
+		"attributes": {
+		  "id": "android-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Верстка под iOS",
+		"attributes": {
+		  "id": "ios-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Верстка под Windows Phone",
+		"attributes": {
+		  "id": "wPhone-skill",
+		  "checked": false
+		}
+	  }
+	]
+  },
+  {
+	"class": "third-column",
+	"data": [
+	  {
+		"label": "Верстка рассылок",
+		"attributes": {
+		  "id": "emails-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Адаптивная верстка",
+		"attributes": {
+		  "id": "adaptive-skill",
+		  "checked": false
+		}
+	  },
+	  {
+		"label": "Использую Dropbox",
+		"attributes": {
+		  "id": "dropbox-skill",
+		  "checked": true
+		}
+	  },
+	  {
+		"label": "Использую Gmail",
+		"attributes": {
+		  "id": "gmail-skill",
+		  "checked": true
+		}
+	  },
+	  {
+		"label": "Использую GitHub",
+		"attributes": {
+		  "id": "gitHub-skill",
+		  "checked": true
+		}
+	  }
+	]
+  }
+
+  ]
+

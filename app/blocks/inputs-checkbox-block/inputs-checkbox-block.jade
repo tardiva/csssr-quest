@@ -1,0 +1,6 @@
+include ../input-checkbox/input-checkbox
+
+mixin inputs-checkbox-block(inputsData)
+	+b('div').inputs-checkbox-block
+		each input in inputsData.data
+			+input-checkbox(input)
