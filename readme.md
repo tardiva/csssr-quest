@@ -1,4 +1,4 @@
-#Test assesment for csssr.ru 
+#Test assignment for csssr.ru 
 
 based on csssr project template (https://github.com/CSSSR/csssr-project-template)
 
