@@ -3,25 +3,23 @@
 	const bar = document.getElementById('bar');
 	const handle = document.getElementById('handle');
 	const input = document.getElementById('input');
-	const leftEdge = -5 /*handle.offsetWidth/2*/;
-	const rightEdge = bar.offsetWidth - 10 /*handle.offsetWidth/2*/;
+	const leftEdge = -5/* handle.offsetWidth/2*/;
+	const rightEdge = bar.offsetWidth - 10/* handle.offsetWidth/2*/;
 
 	function moveHandle(event, shift) {
 
 		let eventCoord;
 		let xCoord;
 		let offset = 0;
-		let startPoint;
-		let endPoint;
 
 		if (event.type === 'touchmove' || event.type === 'touchstart') {eventCoord = event.touches[0].pageX;}
-		else  {
-			    eventCoord = event.pageX;
-				offset = pageXOffset;
+		else {
+			eventCoord = event.pageX;
+			offset = pageXOffset;
 		}
 
-		startPoint = bar.getBoundingClientRect().left + offset;
-		endPoint = startPoint + bar.offsetWidth;
+		const startPoint = bar.getBoundingClientRect().left + offset;
+		const endPoint = startPoint + bar.offsetWidth;
 
 		xCoord = eventCoord - shift - startPoint;
 
@@ -32,11 +30,11 @@
 		input.value = xCoord;
 	}
 
-	    handle.style.left = input.value + 'px';
+	handle.style.left = input.value + 'px';
 
-		handle.addEventListener('mousedown', function () {
+	handle.addEventListener('mousedown', function () {
 
-		let shift = event.pageX - handle.getBoundingClientRect().left - pageXOffset;
+		const shift = event.pageX - handle.getBoundingClientRect().left - pageXOffset;
 
 		handle.style.transition = '';
 		handle.ondragstart = function () {
@@ -66,7 +64,7 @@
 
 	bar.addEventListener('click', function () {
 
-		let shift = 5/* handle.offsetWidth/2*/;
+		const shift = 5/* handle.offsetWidth/2*/;
 		handle.style.transition = 'left .3s ease-out';
 		moveHandle(event, shift);
 	});
